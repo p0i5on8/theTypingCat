@@ -9,6 +9,7 @@ install the selenium library for python
 python3 -m pip install selenium
 ```
 also install the latest version of chrome driver from [here](https://chromedriver.chromium.org/downloads)
+make sure that the version of chromedriver downloaded is compatible with your chrome browser
 
 ### Installation and Usage
 
