@@ -11,12 +11,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
 parser = ArgumentParser()
-parser.add_argument("-t", "--time", help="1m, 3m or 5m for 1, 3 or 5 minutes test respectively")
+parser.add_argument("-t", "--time", help="1, 3 or 5 for 1 minute, 3 minutes or 5 minutes test respectively")
 parser.add_argument("-u", "--username", help="username for login (optional)")
 args = parser.parse_args()
 
 if args.time and args.username:
-	if args.time != "1m" and args.time != "3m" and args.time != "5m":
+	if args.time != "1" and args.time != "3" and args.time != "5":
 		parser.print_help()
 		exit()
 	if args.username:
@@ -40,20 +40,13 @@ if args.time and args.username:
 		getTestPage1m = driver.find_element_by_class_name('fa.fa-tachometer.margin-right-5')
 		getTestPage1m.click()
 		time.sleep(2)
-	# else:
-	# 	options = webdriver.ChromeOptions()
-	# 	options.add_argument("--start-maximized")
-	# 	driver = webdriver.Chrome(chrome_options=options)
-	# 	driver.get('https://thetypingcat.com/typing-speed-test/1m')
-	# 	assert "Typing Test" in driver.title
-	# 	time.sleep(3)
-		# wait=WebDriverWait(driver,2)
-	if args.time == "3m":
+
+	if args.time == "3":
 		# wait.until(EC.presence_of_element_located((By.CLASS_NAME,"text-notransform.btn.btn-default")))
 		getTestPage3m = driver.find_elements_by_class_name('text-notransform.btn.btn-default')[0]
 		getTestPage3m.click()
 		time.sleep(2)
-	elif args.time == "5m":
+	elif args.time == "5":
 		# wait.until(EC.presence_of_element_located((By.CLASS_NAME,"text-notransform.btn.btn-default")))
 		getTestPage5m = driver.find_elements_by_class_name('text-notransform.btn.btn-default')[1]
 		getTestPage5m.click()
@@ -68,22 +61,23 @@ if args.time and args.username:
 			actions.send_keys(currentChar)
 		actions.perform()
 		time.sleep(0.02)
+
 elif args.time:
-	if args.time != "1m" and args.time != "3m" and args.time != "5m":
+	if args.time != "1" and args.time != "3" and args.time != "5":
 		parser.print_help()
 		exit()
 	options = webdriver.ChromeOptions()
 	options.add_argument("--start-maximized")
 	driver = webdriver.Chrome(chrome_options=options)
-	if args.time == "1m":
+	if args.time == "1":
 		driver.get('https://thetypingcat.com/typing-speed-test/1m')
 		wait=WebDriverWait(driver,2)
 		wait.until(EC.presence_of_element_located((By.CLASS_NAME,"char.active")))
-	elif args.time == "3m":
+	elif args.time == "3":
 		driver.get('https://thetypingcat.com/typing-speed-test/3m')
 		wait=WebDriverWait(driver,2)
 		wait.until(EC.presence_of_element_located((By.CLASS_NAME,"char.active")))
-	elif args.time == "5m":
+	elif args.time == "5":
 		driver.get('https://thetypingcat.com/typing-speed-test/5m')
 		wait=WebDriverWait(driver,2)
 		wait.until(EC.presence_of_element_located((By.CLASS_NAME,"char.active")))
