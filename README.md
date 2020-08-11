@@ -11,7 +11,7 @@ python3 -m pip install selenium
 
 Open chrome, goto `chrome://settings/help` and note down the chrome version   
 
-![Chrome Version](assets/chrome.png)
+![Chrome Version](images/chrome.png)
 
 Now download a compatible version of [Chrome Driver](https://chromedriver.chromium.org/downloads)  
 My chrome version is 84.0 so I downloaded Chrome Driver 84.0
@@ -44,4 +44,4 @@ python3 theTypingCat.py -b firefox -t 5 -u <username>
 
 ## Demo
 
-[![Demo](assets/demo.gif)](https://www.youtube.com/watch?v=H7EZ_vs_hpQ)
+[![Demo](images/demo.gif)](https://www.youtube.com/watch?v=H7EZ_vs_hpQ)
