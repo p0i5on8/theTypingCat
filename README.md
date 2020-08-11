@@ -44,4 +44,6 @@ python3 theTypingCat.py -b firefox -t 5 -u <username>
 
 ## Demo
 
+[YouTube Video](https://www.youtube.com/watch?v=H7EZ_vs_hpQ)
+
 [![Demo](images/demo.gif)](https://www.youtube.com/watch?v=H7EZ_vs_hpQ)
