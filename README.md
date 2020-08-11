@@ -1,6 +1,6 @@
 # The Typing Cat
 
-theTypingCat automates the typing test on [theTypingCat.com](https://thetypingcat.com/) using [Selenium](https://selenium-python.readthedocs.io/)
+theTypingCat automates the typing test on [theTypingCat.com](https://thetypingcat.com/) using [Selenium WebDriver](https://selenium-python.readthedocs.io/)
 
 ## Requirements
 
@@ -9,7 +9,7 @@ Install the Selenium library for python
 python3 -m pip install selenium
 ```
 
-Open chrome, goto [chrome://settings/help](chrome://settings/help) and note down the chrome version   
+Open chrome, goto `chrome://settings/help` and note down the chrome version   
 
 ![Chrome Version](chrome.png)
 
@@ -25,7 +25,7 @@ git clone https://github.com/p0i5on8/theTypingCat.git
 
 Now copy the Chrome Driver in this repository
 ```bash
-cp ~/Downloads/chromedriver.exe theTypingCat
+cp ~/Downloads/chromedriver theTypingCat
 ```
 
 ## Usage
