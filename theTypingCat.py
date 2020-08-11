@@ -50,8 +50,8 @@ if args.time and args.username:
 		# wait=WebDriverWait(driver,2)
 	if args.time == "3m":
 		# wait.until(EC.presence_of_element_located((By.CLASS_NAME,"text-notransform.btn.btn-default")))
-		getTestPage5m = driver.find_elements_by_class_name('text-notransform.btn.btn-default')[0]
-		getTestPage5m.click()
+		getTestPage3m = driver.find_elements_by_class_name('text-notransform.btn.btn-default')[0]
+		getTestPage3m.click()
 		time.sleep(2)
 	elif args.time == "5m":
 		# wait.until(EC.presence_of_element_located((By.CLASS_NAME,"text-notransform.btn.btn-default")))
@@ -68,6 +68,36 @@ if args.time and args.username:
 			actions.send_keys(currentChar)
 		actions.perform()
 		time.sleep(0.02)
+elif args.time:
+	if args.time != "1m" and args.time != "3m" and args.time != "5m":
+		parser.print_help()
+		exit()
+	options = webdriver.ChromeOptions()
+	options.add_argument("--start-maximized")
+	driver = webdriver.Chrome(chrome_options=options)
+	if args.time == "1m":
+		driver.get('https://thetypingcat.com/typing-speed-test/1m')
+		wait=WebDriverWait(driver,2)
+		wait.until(EC.presence_of_element_located((By.CLASS_NAME,"char.active")))
+	elif args.time == "3m":
+		driver.get('https://thetypingcat.com/typing-speed-test/3m')
+		wait=WebDriverWait(driver,2)
+		wait.until(EC.presence_of_element_located((By.CLASS_NAME,"char.active")))
+	elif args.time == "5m":
+		driver.get('https://thetypingcat.com/typing-speed-test/5m')
+		wait=WebDriverWait(driver,2)
+		wait.until(EC.presence_of_element_located((By.CLASS_NAME,"char.active")))
+	while True:
+		text = driver.find_element_by_class_name("char.active")
+		currentChar = text.get_attribute("data-char")
+		actions = ActionChains(driver)
+		if currentChar == "⏎":
+			actions.send_keys(Keys.RETURN)
+		else:
+			actions.send_keys(currentChar)
+		actions.perform()
+		time.sleep(0.02)
+
 else:
 	parser.print_help()
 
